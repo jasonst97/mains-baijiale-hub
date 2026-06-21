@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>百家乐 · 信息卡片与日常参考</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #f3f0eb;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', 'Helvetica Neue', sans-serif;
+      color: #2c2b28;
+      line-height: 1.7;
+      padding: 2rem 1.2rem;
+    }
+    .page-wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 2.8rem 2.2rem 2.8rem 2.2rem;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.03), 0 6px 12px rgba(0,0,0,0.02);
+    }
+    @media (max-width: 560px) {
+      body { padding: 1rem 0.6rem; }
+      .page-wrap { padding: 1.8rem 1.2rem; border-radius: 14px; }
+    }
+
+    /* 主视觉 – 极简留白区块 */
+    .hero {
+      margin-bottom: 2.8rem;
+      border-bottom: 1px solid #e6e2db;
+      padding-bottom: 1.6rem;
+    }
+    .hero-symbol {
+      font-size: 2.6rem;
+      letter-spacing: 2px;
+      color: #4d4943;
+      font-weight: 300;
+      margin-bottom: 0.8rem;
+    }
+    .hero-symbol span {
+      background: #eae6df;
+      display: inline-block;
+      padding: 0.1rem 0.8rem;
+      border-radius: 30px;
+      font-weight: 400;
+    }
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 400;
+      color: #1c1b18;
+      margin: 0.8rem 0 0.2rem;
+      letter-spacing: -0.01em;
+    }
+    .hero p {
+      font-size: 0.95rem;
+      color: #5e5a53;
+      max-width: 560px;
+      margin-top: 0.5rem;
+    }
+
+    /* 标题层次 */
+    h2 {
+      font-size: 1.3rem;
+      font-weight: 450;
+      letter-spacing: 0.01em;
+      color: #2e2b27;
+      margin: 2.2rem 0 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid #e3dfd8;
+    }
+    h3 {
+      font-size: 1.05rem;
+      font-weight: 450;
+      color: #3b3732;
+      margin: 1.4rem 0 0.4rem;
+    }
+
+    /* 卡片网格 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin: 1.4rem 0 0.6rem;
+    }
+    @media (max-width: 480px) {
+      .card-grid { grid-template-columns: 1fr; }
+    }
+    .card {
+      background: #f8f6f2;
+      border-radius: 16px;
+      padding: 1.3rem 1rem 1.1rem;
+      transition: background 0.15s;
+    }
+    .card:hover {
+      background: #f0ece5;
+    }
+    .card h4 {
+      font-weight: 450;
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
+      color: #2c2a25;
+    }
+    .card p {
+      font-size: 0.9rem;
+      color: #5f5a52;
+      margin: 0;
+    }
+
+    /* 适合人群卡片 */
+    .people-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 0.8rem;
+      margin: 0.6rem 0 1.2rem;
+    }
+    .tag {
+      background: #eae7e1;
+      color: #2f2c27;
+      padding: 0.25rem 0.9rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      letter-spacing: 0.01em;
+    }
+    .tag-soft {
+      background: #f0ece5;
+      color: #47433c;
+    }
+
+    /* 自然链接段落 + 延伸阅读 */
+    .link-sentence {
+      background: #f9f7f4;
+      padding: 1rem 1.2rem;
+      border-radius: 18px;
+      margin: 1.8rem 0 0.8rem;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+    .link-sentence a {
+      color: #1f1e1b;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      text-decoration-color: #b7b0a6;
+      font-weight: 400;
+    }
+    .link-sentence a:hover {
+      text-decoration-color: #1f1e1b;
+    }
+
+    /* FAQ 摘要细线条 */
+    .faq-block {
+      margin: 2.2rem 0 0.4rem;
+    }
+    .faq-item {
+      padding: 0.8rem 0;
+      border-bottom: 1px dashed #ddd8d0;
+    }
+    .faq-item:last-of-type {
+      border-bottom: none;
+    }
+    .faq-q {
+      font-weight: 440;
+      color: #35322d;
+      font-size: 0.95rem;
+    }
+    .faq-a {
+      color: #5b5650;
+      font-size: 0.88rem;
+      margin-top: 0.15rem;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #e6e2db;
+      margin: 2rem 0 0.5rem;
+    }
+
+    .footer-note {
+      font-size: 0.78rem;
+      color: #9b968e;
+      text-align: center;
+      margin-top: 2rem;
+      letter-spacing: 0.3px;
+    }
+
+    .quiet-stat {
+      display: inline-block;
+      background: #f1ede7;
+      padding: 0 6px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      color: #4f4a42;
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- 主视觉 -->
+  <div class="hero">
+    <div class="hero-symbol"><span>🃏</span> · 牌桌参照</div>
+    <h1>百家乐 · 信息卡片</h1>
+    <p>日常查询、规则对照与延伸阅读，适合在闲暇时随手翻阅。</p>
+  </div>
+
+  <!-- 用途卡片 · 日常查询视角 -->
+  <h2>📋 常见查询场景</h2>
+  <div class="card-grid">
+    <div class="card">
+      <h4>规则摘要</h4>
+      <p>闲／庄两家各发两张牌，点数和接近9的一方胜；含补牌规则速查。</p>
+    </div>
+    <div class="card">
+      <h4>点数对照</h4>
+      <p>10、J、Q、K 计0点；A计1点；其余牌按牌面数字计算。</p>
+    </div>
+    <div class="card">
+      <h4>补牌备忘录</h4>
+      <p>闲家总点数为0–5必须补牌，6–7停牌；庄家补牌依闲家第三张而定。</p>
+    </div>
+    <div class="card">
+      <h4>投注选项</h4>
+      <p>庄、闲、和局、对子等。庄家胜出抽水5%为常见惯例。</p>
+    </div>
+  </div>
+
+  <!-- 适合人群 + 细腻标签 -->
+  <h2>🧑‍🤝‍🧑 适合翻阅的人群</h2>
+  <div class="people-cards">
+    <span class="tag">规则初学者</span>
+    <span class="tag">对照备忘者</span>
+    <span class="tag">偶尔娱乐</span>
+    <span class="tag tag-soft">梳理思路</span>
+    <span class="tag tag-soft">阅读延伸</span>
+    <span class="tag">观察趋势</span>
+  </div>
+  <p style="font-size:0.92rem; color:#5a5650; max-width:580px;">不论你只是刚刚接触，还是早已熟悉——这个页面都试图提供一种干净、安静的参考方式，不匆忙，不渲染。</p>
+
+  <!-- 自然链接段落：从延伸阅读的角度嵌入 -->
+  <h2>📎 从日常查询到延伸阅读</h2>
+  <div class="link-sentence">
+    规则与术语时常更新，如果想看更完整的描述、策略讨论或历史背景，可以访问 <a href="https://mains-baijiale.com">百家乐</a> 了解更多文章与对照表。那里内容更细致，也保留了多种解读角度。
+  </div>
+  <div style="margin: 0.8rem 0 0.2rem; font-size:0.9rem; color:#4d4943; background: #f5f2ec; padding:0.6rem 1rem; border-radius: 40px; display: inline-block;">
+    <span class="quiet-stat">🔖 延伸参考</span> 补牌策略、赔率简史、常见术语对照
+  </div>
+
+  <!-- 特点 / 安静叙述一段 -->
+  <h2>📌 信息卡片的叙述</h2>
+  <p style="margin-bottom: 0.6rem;">这里不提供「必胜法则」，也不鼓励过度沉浸。我们更愿意将这套卡片视为一种整理——把规则、节奏和常规思考路径陈列出来，留出空白，由你自行决定如何阅读。</p>
+  <p style="color:#5a5550;">每个要点都经过压缩，适合快速浏览或作为桌面边栏参考。如果你需要更完整的语境，不妨展开对比、记录自己的观察。</p>
+
+  <!-- FAQ 摘要 / 克制问答 -->
+  <div class="faq-block">
+    <h2>❓ 几句 FAQ 摘要</h2>
+    <div class="faq-item">
+      <div class="faq-q">「和局」与「对子」的赔率一般是多少？</div>
+      <div class="faq-a">通常和局赔率为 8:1 或 9:1；对子赔率约 11:1（不同平台可能有细微差异）。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">牌靴中通常使用几副牌？</div>
+      <div class="faq-a">常见为6副或8副牌混合，每局结束后牌不重新插入，直到一定张数再换新靴。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">自然牌（8 or 9）是否直接结束该局？</div>
+      <div class="faq-a">是的。如果闲家或庄家前两张牌为8或9（即「例牌」），则不再补牌，直接比较点数。</div>
+    </div>
+  </div>
+
+  <!-- 一段克制提示 -->
+  <hr>
+  <p style="font-size:0.9rem; color:#706b63; margin-top: 0.2rem;">⏳ 以上内容仅供信息参考与日常对照。每种规则细节可能随场所有所调整，建议以实际环境为准。</p>
+
+  <!-- 尾部 -->
+  <div class="footer-note">
+    信息卡片 · 安静翻阅
+  </div>
+
+</div>
+</body>
+</html>
