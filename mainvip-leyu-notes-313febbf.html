@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>乐鱼 · 稳定入口说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #f7f6f2;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            color: #1f2a3a;
+            line-height: 1.7;
+            padding: 0 1.2rem;
+        }
+        .page {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 2.8rem 0 4rem;
+        }
+
+        /* 顶部导航 —— 极简留白 */
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0 1.8rem;
+            border-bottom: 1px solid #e3e0d7;
+        }
+        .top-nav .mark {
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            color: #3b4b5e;
+        }
+        .top-nav .mark span {
+            color: #9a8c7a;
+            font-weight: 300;
+            margin-left: 4px;
+        }
+        .top-nav .nav-links {
+            display: flex;
+            gap: 2rem;
+            font-size: 0.9rem;
+            color: #5b6b7c;
+        }
+        .top-nav .nav-links a {
+            text-decoration: none;
+            color: #3e5b6b;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+        .top-nav .nav-links a:hover {
+            border-bottom-color: #9a8c7a;
+        }
+
+        /* 内容区 */
+        section {
+            margin: 3rem 0;
+        }
+        h1 {
+            font-size: 2rem;
+            font-weight: 450;
+            letter-spacing: -0.5px;
+            color: #1f2a3a;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+        .subhead {
+            font-size: 1rem;
+            color: #6f7e8c;
+            margin-bottom: 1.8rem;
+            font-weight: 300;
+            border-left: 3px solid #ccbeaa;
+            padding-left: 1rem;
+        }
+        h2 {
+            font-size: 1.4rem;
+            font-weight: 450;
+            margin: 2.2rem 0 1rem;
+            color: #1f2a3a;
+            letter-spacing: 0.2px;
+        }
+        p {
+            margin-bottom: 1.2rem;
+            font-size: 1rem;
+            color: #2d3b49;
+        }
+        a {
+            color: #3e5b6b;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: #c0b7a6;
+            transition: color 0.2s;
+        }
+        a:hover {
+            color: #a08268;
+        }
+
+        /* 场景卡片（三个模块） */
+        .scene-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+            margin: 2rem 0 0.8rem;
+        }
+        .scene-card {
+            flex: 1 1 180px;
+            background: #ffffffea;
+            padding: 1.6rem 1.2rem 1.4rem;
+            border-radius: 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            border: 1px solid #eae7de;
+        }
+        .scene-card h3 {
+            font-size: 1.1rem;
+            font-weight: 450;
+            margin-bottom: 0.6rem;
+            color: #1f2a3a;
+        }
+        .scene-card p {
+            font-size: 0.9rem;
+            color: #4f5f6e;
+            margin-bottom: 0.3rem;
+        }
+        .scene-card .minor-note {
+            font-size: 0.8rem;
+            color: #8e9ba8;
+            margin-top: 0.6rem;
+            border-top: 1px solid #ede9e0;
+            padding-top: 0.5rem;
+        }
+
+        /* 常见说明（faq 摘要） */
+        .faq-list {
+            margin: 1.8rem 0 1rem;
+            border-top: 1px solid #e3e0d7;
+            padding-top: 1.5rem;
+        }
+        .faq-item {
+            margin-bottom: 1rem;
+        }
+        .faq-item .q {
+            font-weight: 450;
+            font-size: 1rem;
+            color: #1f2a3a;
+            margin-bottom: 0.2rem;
+        }
+        .faq-item .a {
+            font-size: 0.92rem;
+            color: #4a5b6b;
+            padding-left: 0.8rem;
+            border-left: 2px solid #ddd6c9;
+        }
+
+        .footer-note {
+            margin-top: 4rem;
+            padding-top: 1.8rem;
+            border-top: 1px solid #e3e0d7;
+            font-size: 0.85rem;
+            color: #6b7a88;
+            text-align: center;
+        }
+        .footer-note a {
+            color: #4c6677;
+        }
+
+        @media (max-width: 500px) {
+            .page { padding: 1.8rem 0 3rem; }
+            h1 { font-size: 1.6rem; }
+            .top-nav { flex-wrap: wrap; gap: 0.8rem; }
+            .top-nav .nav-links { gap: 1rem; }
+            .scene-grid { gap: 1rem; }
+            .scene-card { flex: 1 1 100%; }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- 顶部导航 -->
+    <nav class="top-nav">
+        <div class="mark">乐鱼<span>· 说明</span></div>
+        <div class="nav-links">
+            <a href="#intro">介绍</a>
+            <a href="#scenes">场景</a>
+            <a href="#faq">常见说明</a>
+        </div>
+    </nav>
+
+    <!-- 主介绍 hero 部分 -->
+    <section id="intro">
+        <h1>一个稳定的<br>访问入口与页面说明</h1>
+        <div class="subhead">对「乐鱼」相关页面和内容的基础梳理</div>
+        <p>
+            很多人在寻找某个地址或页面时，往往花时间在零散的信息里，反而忽略了最直接的起点。
+            对于经常需要了解或浏览<a href="https://mainvip-leyu.com">乐鱼</a>相关信息的用户而言，
+            有一个清楚、稳定的索引页，可以减少不必要的跳转和猜测。
+        </p>
+        <p>
+            这个页面就是围绕这样的想法搭建的：没有复杂的装饰，也没有诱导性的措辞，
+            只是把几个常见的模块和说明放在一起，方便快速浏览。下面的内容涉及几个主要使用方向，
+            以及一些被反复问起的细节。如果你对「乐鱼」还不太熟悉，可以从这里开始看。
+        </p>
+    </section>
+
+    <!-- 三个场景模块 -->
+    <section id="scenes">
+        <h2>三种常见使用情境</h2>
+        <p style="margin-bottom:0.5rem; font-size:0.95rem; color:#3f5365;">以下是从日常访问中整理的几个典型方向，每个都尝试保持简洁。</p>
+        <div class="scene-grid">
+            <div class="scene-card">
+                <h3>直接访问</h3>
+                <p>在浏览器中输入地址，或从书签中打开。如果你的目标就是<a href="https://mainvip-leyu.com">乐鱼</a>本身，这是最简短的路径。</p>
+                <div class="minor-note">不需要经过第三方中间页</div>
+            </div>
+            <div class="scene-card">
+                <h3>信息参考</h3>
+                <p>有些用户需要先了解页面结构、功能分布或注意事项，再决定下一步操作。</p>
+                <div class="minor-note">本文档下方的常见说明章节即为此设计</div>
+            </div>
+            <div class="scene-card">
+                <h3>定期回访</h3>
+                <p>对于已经熟悉内容的用户，直接通过入口页定位到<a href="https://mainvip-leyu.com">乐鱼</a>，避免每次重新搜索。</p>
+                <div class="minor-note">书签或历史记录是最常用的方式</div>
+            </div>
+        </div>
+        <p style="font-size:0.9rem; color:#5c6d7d; margin-top:0.8rem;">
+            每个场景的边界并不绝对，但提供这些分类主要是为了让你在需要的时候，能更快找到对应的节奏。
+        </p>
+    </section>
+
+    <!-- 常见说明 (faq 摘要) -->
+    <section id="faq">
+        <h2>常见说明与简短回应</h2>
+        <div class="faq-list">
+            <div class="faq-item">
+                <div class="q">· 这个页面和「乐鱼」的关系是什么？</div>
+                <div class="a">它是围绕乐鱼的一个介绍与索引页，包含稳定入口与模块说明，内容保持克制和真实。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q">· 为什么强调“入口稳定”？</div>
+                <div class="a">因为部分用户反馈曾找到过过期或跳转多次的链接，所以直接给出指向<a href="https://mainvip-leyu.com">乐鱼</a>的固定地址，减少中间环节。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q">· 页面信息会更新吗？</div>
+                <div class="a">会随着使用反馈和实际变化做调整，但始终保持自然克制的表述，不会加入诱导或夸张内容。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q">· 我可以在其他场景引用这个页面吗？</div>
+                <div class="a">可以。只要保持内容原样且不用于误导性用途即可，建议直接引用本页的 url 或指向<a href="https://mainvip-leyu.com">乐鱼</a>的链接。</div>
+            </div>
+        </div>
+        <p style="margin-top:1.2rem; font-size:0.9rem; color:#4e5f6e;">
+            如果你有其他疑问，也可以通过已有的信息渠道进一步了解。这个页面暂时没有设置留言功能，
+            但常见的问题基本都包含在上面几项里了。
+        </p>
+    </section>
+
+    <!-- 页脚 -->
+    <div class="footer-note">
+        <span>一个轻量的导航式说明页 · 内容指向</span>
+        <a href="https://mainvip-leyu.com">乐鱼</a>
+        <span style="display:block; margin-top:0.3rem; font-size:0.75rem; color:#8e9caa;">以稳定入口和页面说明为出发点，无诱导表述</span>
+    </div>
+
+</div>
+</body>
+</html>
